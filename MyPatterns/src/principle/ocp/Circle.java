@@ -1,17 +1,16 @@
 package principle.ocp;
 
-public class Circle implements IGeometry{
+public class Circle extends Geometry{
 	private double radius = 1.0;
 	
 	
-	@Override
-	public double getArea() {
-		return Math.PI * Math.pow(radius, 2);
+	public Circle(double r) {
+		radius = r;
 	}
 
 	@Override
-	public double getPerimeter() {
-		return 2 * Math.PI * radius;
+	public double getArea() {
+		return Math.PI * Math.pow(radius, 2);
 	}
 
 	public double getRadius() {
@@ -21,5 +20,8 @@ public class Circle implements IGeometry{
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
-
+	
+	public String toString() {
+		return "Circle: " + getArea();
+	}
 }

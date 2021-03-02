@@ -1,17 +1,17 @@
 package principle.ocp;
 
-public class Rectangle implements IGeometry{
+public class Rectangle extends Geometry{
 	private double width = 1.0;
 	private double height = 1.0;
+
+	public Rectangle(double w, double h) {
+		width = w;
+		height = h;
+	}
 
 	@Override
 	public double getArea() {
 		return width * height;
-	}
-
-	@Override
-	public double getPerimeter() {
-		return 2 * (width + height);
 	}
 
 	public double getWidth() {
@@ -29,5 +29,7 @@ public class Rectangle implements IGeometry{
 	public void setHeight(double height) {
 		this.height = height;
 	}
-	
+	public String toString() {
+		return "Rectangle: " + getArea();
+	}
 }
