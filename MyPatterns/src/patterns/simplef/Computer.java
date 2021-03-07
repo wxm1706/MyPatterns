@@ -1,4 +1,4 @@
-package patterns.fmp.case1;
+package patterns.simplef;
 
 public class Computer {
 	private CPU cpu;
