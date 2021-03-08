@@ -331,8 +331,8 @@ public class GifDecoder {
 		status = STATUS_OK;
 		try {
 			name = name.trim().toLowerCase();
-			if ((name.indexOf("file:") >= 0) ||
-				(name.indexOf(":/") > 0)) {
+			System.out.println(name.indexOf("http:"));
+			if ((name.indexOf("http:") >= 0) || (name.indexOf("https:") > 0)) {
 				URL url = new URL(name);
 				in = new BufferedInputStream(url.openStream());
 			} else {
@@ -341,6 +341,7 @@ public class GifDecoder {
 			status = read(in);
 		} catch (IOException e) {
 			status = STATUS_OPEN_ERROR;
+			e.printStackTrace();
 		}
 
 		return status;
