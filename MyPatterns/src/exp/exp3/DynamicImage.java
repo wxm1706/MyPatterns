@@ -1,11 +1,11 @@
-package game;
+package exp.exp3;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.image.Image;
 
-public class DynamicImage{
+public class DynamicImage implements Cloneable{
 	private List<Image> images;
 	private int index = 0;  //游标
 	private boolean repeated = false; //是否循环播放
@@ -21,6 +21,10 @@ public class DynamicImage{
 	public DynamicImage(List<Image> imgs, boolean repeated) {
 		this.images = imgs;
 		this.repeated = repeated;
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 	
 	public Image getImage() {

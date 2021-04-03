@@ -1,4 +1,4 @@
-package gif;
+package patterns.adapter.case2;
 
 import java.io.*;
 import java.awt.*;

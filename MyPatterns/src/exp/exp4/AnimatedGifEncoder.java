@@ -1,4 +1,4 @@
-package gif;
+package exp.exp4;
 
 import java.io.*;
 import java.awt.*;

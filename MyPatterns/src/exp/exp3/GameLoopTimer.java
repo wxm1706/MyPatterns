@@ -1,4 +1,4 @@
-package game;
+package exp.exp3;
 
 import javafx.animation.AnimationTimer;
 
