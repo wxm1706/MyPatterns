@@ -1,10 +1,12 @@
 package exp.exp4;
 
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.transform.Transform;
 
 public class Render {
 	public static Image rendering(Canvas canvas, Frame f, String text) {
@@ -22,7 +24,10 @@ public class Render {
 				gc.fillText(text, canvas.getWidth() / 2 - 32 * text.length() / 2, canvas.getHeight() - 32);
 				gc.restore();
 			}
-			return canvas.snapshot(null, null);
+			SnapshotParameters sp =  new SnapshotParameters();
+			//sp.setTransform(Transform.scale(0.2, 0.2));
+			//System.out.println(canvas.getWidth());
+			return canvas.snapshot(sp, null);
 		}
 		return null;
 	}

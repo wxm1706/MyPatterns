@@ -49,27 +49,37 @@ public class MainApp extends Application {
 			Image sword = new Image("file:" + System.getProperty("user.dir") + "/bin/images/sword/0" + i + ".png");
 			Image newSword = ImageTool.clipImage(sword, 40, 0, 60, 198);
 			swords.add(newSword);
-			
-		}		
+		}
 		
+		List<Image> rotateSwords = new ArrayList<Image>();
+		for(int i = 0; i < 30; i++) {
+			rotateSwords.add(ImageTool.rotate(swords.get(0), 12 * i, new Point3D(0, 1, 0)));
+		}
+
 		GameLoopTimer timer = new GameLoopTimer() {
 			int i = 0;
+			int k = 0;
 			@Override
 			public void inputProcess() {}
 
 			@Override
-			public void logicUpdate() {}
+			public void logicUpdate() {
+				k = (k + 1) % 30;
+			}
 
 			@Override
 			public void displayUpdate() {
 				gc.clearRect(0, 0, 1350, 750);
 				gc.drawImage(mapImage, 0, 0);
-				gc.save();
-				gc.translate(300 + swords.get(1).getWidth()/2, 300 + swords.get(1).getHeight()/4);
-				gc.rotate(20 * i++);
-				gc.translate(-300 - swords.get(1).getWidth()/2, -300 - swords.get(1).getHeight()/4);
-				gc.drawImage(swords.get(1), 300, 300);
-				gc.restore();
+				//gc.save();
+				//gc.translate(300 + swords.get(1).getWidth()/2, 300 + swords.get(1).getHeight()/4);
+				//gc.rotate(20 * i++);
+				//gc.translate(-300 - swords.get(1).getWidth()/2, -300 - swords.get(1).getHeight()/4);
+				//gc.drawImage(swords.get(1), 300, 300);
+				//gc.restore();
+				System.out.println(rotateSwords.get(k).getHeight() + "," + rotateSwords.get(k).getWidth());
+				gc.drawImage(rotateSwords.get(k), 200 + (rotateSwords.get(0).getWidth() - rotateSwords.get(k).getWidth()) / 2, 200);
+				
 			}
 			
         };

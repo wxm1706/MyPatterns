@@ -5,7 +5,7 @@ import javafx.animation.AnimationTimer;
 public abstract class GameLoopTimer extends AnimationTimer{
 	private long startTime;
 	private long nextTick;
-	private final int TICKS_PER_SECOND = 10;
+	private final int TICKS_PER_SECOND = 60;
 	private final int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 	private final int MAX_FRAMESKIP = 10;
 	

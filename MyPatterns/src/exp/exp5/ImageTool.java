@@ -1,4 +1,4 @@
-package game;
+package exp.exp5;
 
 import java.io.IOException;
 import java.util.Arrays;
